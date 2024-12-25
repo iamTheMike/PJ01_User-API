@@ -6,6 +6,7 @@ const {checkApiKey } = require('./middleware/apikeyCheck');
 const dotenv = require('dotenv');
 
 
+
 const app = express();
 const port = 3000;
 
@@ -14,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument));
 app.use('/api/user',checkApiKey,userRoute);
 
 
