@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const userRoute = require('./routes/userRoute');
 const {checkApiKey } = require('./middleware/apikeyCheck');
 const dotenv = require('dotenv');
+const { swaggerUi, swaggerDocument } = require('./swagger/swagger');
 
 
 

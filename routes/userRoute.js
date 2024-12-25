@@ -10,7 +10,7 @@ router.get('/users',users);
 router.get('/user/:name',userById);
 router.put('/user/:name',tokenRequire,editUser);
 router.delete('/user/:name',tokenRequire,adminCheck,deleteUser);
-router.post('/user',signup);
+router.post('/register',signup);
 router.post('/login',login);
 
 module.exports = router;    
