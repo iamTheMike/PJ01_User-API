@@ -140,25 +140,29 @@ exports.signup = async (req, res) => {
     }
     const [checkEmail] = await db.execute('SELECT * FROM users WHERE email = ?', [email])
       .catch(err => {
+        console.log(err);
         return res.status(500).json({ message: 'Internal server error' });
       });
-    if (results.length > 0) {
+    if (checkEmail.length > 0) {
       return res.status(400).json({ message: 'Email already exists' });
     }
     const [checkName] = await db.execute('SELECT * FROM users WHERE name = ?', [name])
       .catch(err => {
+        console.log(err);
         return res.status(500).json({ message: 'Internal server error' });
       });
-    if (results.length > 0) {
+    if (checkName.length > 0) {
       return res.status(400).json({ message: 'Name already exists' });
     }
     const { salt, hashpassword } = creatSaltHash(password);
     await db.execute('INSERT INTO users (name, email, hashpassword, salt, role) VALUES (?, ?, ?, ?, ?)', [name, email, hashpassword, salt, 'user'])
       .catch(err => {
+        console.log(err);
         return res.status(500).json({ message: 'Internal server error' });
       });
     return res.status(201).json({ message: 'Signup successfully' });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ message: 'Internal server error' });
   }
 }
