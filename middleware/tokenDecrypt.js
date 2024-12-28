@@ -4,7 +4,6 @@ const { verifyToken } = require("../services/๋jsonwebtoken");
 exports.tokenRequire = async (req, res, next) => {
    try {
         const authorization = req.headers.authorization;
-        console.log(authorization);
         if (!authorization) {
             res.status(401).json({ message: 'Unauthorized' });
         }

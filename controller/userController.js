@@ -184,7 +184,12 @@ exports.login = async (req, res) => {
     const { id, name, role } = results[0];
     if (verifySaltHash(password, results[0].salt, results[0].hashpassword)) {
       const token = createToken({ id, name, role, email });
-      return res.json({ token });
+      res.cookie('JWT', token, {
+        httpOnly: true,   // ป้องกันการเข้าถึงจาก JavaScript
+        secure: true,     // ส่งเฉพาะผ่าน HTTPS
+        sameSite: 'Strict' // ป้องกัน CSRF
+      });
+      return res.status(200).json({ token });
     } else {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
