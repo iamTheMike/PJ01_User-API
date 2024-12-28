@@ -1,19 +1,19 @@
 services:
   db:
     image: mysql:latest
-    container_name: std03-mysql
+    container_name: PJ01-mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: STD03
+      MYSQL_DATABASE: PJ01
     volumes:
       - STD03:/var/lib/mysql     
     ports:
       - "3307:3306"  
     networks:
-      - STD03
+      - PJ01
   phpmyadmin: 
     image: phpmyadmin:latest
-    container_name: std03-phpmyadmin
+    container_name: PJ01-phpmyadmin
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
@@ -24,10 +24,10 @@ services:
     depends_on:
        - db   
     networks:
-       - STD03 
+       - PJ01
 networks:
-  STD03:
+  PJ01:
     driver: bridge
 volumes:
-  STD03:
+  PJ01:
     driver: local
