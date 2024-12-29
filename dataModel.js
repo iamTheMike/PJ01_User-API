@@ -9,7 +9,7 @@ const connectMysql = async () => {
             port: 3307,
             user: 'root',
             password: 'password',
-            database: 'STD03'
+            database: 'PJ01'
         });
         console.log('Connected to MySQL successfully.');
         return connection;

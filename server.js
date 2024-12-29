@@ -5,7 +5,6 @@ const userRoute = require('./routes/userRoute');
 const {checkApiKey } = require('./middleware/apikeyCheck');
 const dotenv = require('dotenv');
 const { swaggerUi, swaggerDocument } = require('./swagger/swagger');
-const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
@@ -14,6 +13,7 @@ const corsOptions = {
     optionsSuccessStatus: 200,
     credentials: true
 }
+
 
 
 const app = express();

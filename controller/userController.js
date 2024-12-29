@@ -189,6 +189,11 @@ exports.login = async (req, res) => {
         secure: true,     // ส่งเฉพาะผ่าน HTTPS
         sameSite: 'Strict' // ป้องกัน CSRF
       });
+      res.cookie('_csrf', token, {
+        httpOnly: false,
+        secure: true,
+        sameSite: 'Strict'
+      });
       return res.status(200).json({ token });
     } else {
       return res.status(400).json({ message: 'Invalid email or password' });
