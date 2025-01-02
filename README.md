@@ -1,13 +1,12 @@
-# API Security
+# User API
 
 ## Description
 This application for study some OWASP10-2023 
 
 ### Features
- * JWT for authentication,authorization each endpoint
- * HTTPS
- * Prevent Cross-site-request forgery (CSRF)
- * Prevent SQL Injection
+ * JWT for authentication and authorization each endpoint
+ * Prevent Cross-site-request forgery (CSRF) by validating cookie and header
+ * Prevent SQL Injection by Parameterized query Stlye
  * prevent timing attack 
 
 ### Technologies Used
@@ -22,9 +21,10 @@ This application for study some OWASP10-2023
 ```
 git clone 
 cd project
-docker up -d --build
 npm install
+docker up -d --build
 ```
+
 
 ## Start development
 ```
