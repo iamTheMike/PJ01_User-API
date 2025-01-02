@@ -22,6 +22,7 @@ This application for study some OWASP10-2023
 ```
 git clone 
 cd project
+docker up -d --build
 npm install
 ```
 
