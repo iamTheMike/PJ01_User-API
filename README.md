@@ -1,7 +1,7 @@
 # User API
 
 ## Description
-This application for study some OWASP10-2023 
+This UserAPI application for study RestAPI with some OWASP10-2023 
 
 ### Features
  * JWT for authentication and authorization each endpoint
