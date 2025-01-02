@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const { swaggerUi, swaggerDocument } = require('./swagger/swagger');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const { limiter, userLimiter, speedLimiter } = require('./middleware/urcProtect');
 
 const corsOptions = {
     origin: 'http://localhost:3000',
@@ -25,7 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(cors(corsOptions));
-
+app.use(limiter);
+app.use(userLimiter);
+app.use(speedLimiter);
 
 app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument));
 app.use('/api/user',checkApiKey,userRoute);

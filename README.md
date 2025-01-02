@@ -7,7 +7,8 @@ This UserAPI application for study RestAPI with some OWASP10-2023
  * JWT for authentication and authorization each endpoint
  * Prevent Cross-site-request forgery (CSRF) by validating cookie and header
  * Prevent SQL Injection by Parameterized query Stlye
- * prevent timing attack 
+ * Prevent Unrestricted Resource Consumption by rate limit,delay time
+ * Prevent timing attack 
 
 ### Technologies Used
  * Node.js
