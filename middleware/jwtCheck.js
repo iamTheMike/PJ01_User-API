@@ -1,7 +1,7 @@
 const { verifyToken } = require("../services/๋jsonwebtoken");
 
 
-exports.tokenDecrypt = async (req, res, next) => {
+exports.jwtCheck = async (req, res, next) => {
    try {
         const authorization = req.headers.authorization;
         if(authorization.startsWith('Bearer')){
