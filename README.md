@@ -13,7 +13,9 @@ This UserAPI application for study RestAPI with some OWASP10-2023
 ### Technologies Used
  * Node.js
  * Eexpress
- * SQL
+ * Docker ( MySQL, PMA )
+ * Swagger API-Doc
+
   
 
   
